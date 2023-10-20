@@ -115,12 +115,24 @@ func init_payload_rigid_body_template():
     sprite2d.region_enabled = true
     sprite2d.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
     
+    var particle_emitter: CPUParticles2D = CPUParticles2D.new()
+    particle_emitter.name = "ParticleEmitter"
+    particle_emitter.emitting = false
+    particle_emitter.one_shot = true
+    particle_emitter.amount = 16
+    particle_emitter.explosiveness = 1.0
+    particle_emitter.lifetime = 0.5
+    particle_emitter.lifetime_randomness = 0.5
+    particle_emitter.spread = 20
+    particle_emitter.gravity = Vector2(0, 50)
+    
     payload_template = RigidBody2D.new()
     payload_template.name = "Payload"
     payload_template.lock_rotation = true
     payload_template.global_position = Vector2(0, -8)
     payload_template.add_child(collision_shape)
     payload_template.add_child(sprite2d)
+    payload_template.add_child(particle_emitter)
 
 
 func create_astar_grid(region: Rect2i):
@@ -195,7 +207,7 @@ func _process(delta):
     if need_compute_impulse_sequence:
         need_compute_impulse_sequence = false
         compute_impulse_sequence()
-        print(timed_impulse_sequence)
+#        print(timed_impulse_sequence)
 
     if do_integration:
         time_accumulator += delta
@@ -204,6 +216,12 @@ func _process(delta):
             if time_accumulator >= timed_impulse.time:
                 if has_node("World/Payload"): # prevents crashing in case the level is completed before all impulses have been applied
                     var payload: RigidBody2D = get_node("World/Payload")
+                    var particle_emitter: CPUParticles2D = payload.get_node("ParticleEmitter")
+                    particle_emitter.restart()
+                    particle_emitter.direction = -timed_impulse.impulse.normalized()
+                    particle_emitter.initial_velocity_min = timed_impulse.impulse.length() * 0.50
+                    particle_emitter.initial_velocity_max = timed_impulse.impulse.length() * 0.75
+                    particle_emitter.emitting = true
                     payload.apply_impulse(timed_impulse.impulse)
                 impulse_counter += 1
 
