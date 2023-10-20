@@ -195,6 +195,7 @@ func _process(delta):
     if need_compute_impulse_sequence:
         need_compute_impulse_sequence = false
         compute_impulse_sequence()
+        print(timed_impulse_sequence)
 
     if do_integration:
         time_accumulator += delta
@@ -535,10 +536,72 @@ func add_wire_path_anchor_point_if_possible(point: Vector2i):
         anchor_points.append(point)
 
 
+func explosive_has_input_wire(name: String) -> bool:
+    if name[1] == '1' and ignition_side == str(name[0]):
+        return true
+    
+    var found: bool = false
+    for e in wire_edges:
+        if e.to.substr(0, 2) == name:
+            found = true
+            break
+    return found
+
+
+func explosive_has_output_wire(name: String) -> bool:
+    var found: bool = false
+    for e in wire_edges:
+        if e.from.substr(0, 2) == name:
+            found = true
+            break
+    return found
+
+func explosive_has_exhaust_blocked_by_another_explosive(name: String) -> bool:
+        var number: int = int(name[1])
+        var index: int = number - 1
+        
+        var found: bool = false
+        assert(name[0] in ['L', 'R', 'B'])
+        for i in range(0, index):
+            var adjacent_name: String = name[0] + str(i + 1)
+            # NOTE: the directly adjacent explosive may still not have the output connected
+            if not (explosive_has_input_wire(adjacent_name) and (i < index or explosive_has_output_wire(adjacent_name))):
+                print(adjacent_name + " still not connected!")
+                found = true
+                break
+        return found
+
+
 func add_fuse_edge_node(node_name: String):
     if wire_edge_from == "":
+        # prevent connecting explosives when
+        # connecting an output but the wire has no input
+        if not explosive_has_input_wire(node_name.substr(0, 2)):
+            return
+        
+        # prevent connecting explosives when
+        # connecting an output but the wire already has an output
+        if explosive_has_output_wire(node_name.substr(0, 2)):
+            return
+        
+        # prevent connecting explosives when
+        # an adjacent explosive closer to the exhaust is not connected yet
+        if explosive_has_exhaust_blocked_by_another_explosive(node_name.substr(0, 2)):
+            return
+        
         set_wire_edge_from(node_name)
     else:
+        # prevent connecting explosives when
+        # connecting an input but the wire already has an input
+        if explosive_has_input_wire(node_name.substr(0, 2)):
+            return
+        
+        # prevent connecting explosives when
+        # an adjacent explosive closer to the exhaust is not connected yet
+        if explosive_has_exhaust_blocked_by_another_explosive(node_name.substr(0, 2)):
+            return
+        
+        
         wire_edge_to = node_name
         
         var palette_button_name: String = palette_button_group.get_pressed_button().name
