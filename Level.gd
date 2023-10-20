@@ -61,6 +61,9 @@ var wire_edge_to: String
 var wire_edge_to_soft: String
 var soft_path: PackedVector2Array
 
+# used to prevent wire tangling
+var soft_path_without_last_segment: PackedVector2Array
+
 # keep track of which area the player is currently placing the wire in
 var placing_wire_area: String
 
@@ -663,13 +666,23 @@ func add_wire_edge(e: WireEdge, soft_mode: bool, soft_target: Vector2i):
     elif (node_name[0] == 'R' and node_name[2] == 'B') or (node_name[0] == 'B' and node_name[3] == 'R'):
         astar_grid = astar_grid_right
     
+    # reset soft wire placement solid cells
+    for cell in soft_path_without_last_segment:
+        astar_grid.set_point_solid(cell, false)
+    
     # compute combined path passing through anchor points
     var id_path: PackedVector2Array = PackedVector2Array()
     for anchor_point in anchor_points:
         var id_subpath: PackedVector2Array = astar_grid.get_id_path(origin, anchor_point)
         id_subpath.remove_at(id_subpath.size() - 1)
+        for cell in id_subpath:
+            astar_grid.set_point_solid(cell, true)
         id_path.append_array(id_subpath)
         origin = anchor_point
+    
+    # save id_path without last segment to reset the solid cells
+    # in the next soft wire placement computation
+    soft_path_without_last_segment = id_path
     
     # final segment
     id_path.append_array(astar_grid.get_id_path(origin, target))
