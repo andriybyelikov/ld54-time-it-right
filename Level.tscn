@@ -527,6 +527,31 @@ tile_set = SubResource("TileSet_2ocfw")
 position = Vector2(176, -176)
 zoom = Vector2(2, 2)
 
+[node name="Manual" type="AcceptDialog" parent="Camera2D"]
+title = "Manual"
+initial_position = 1
+size = Vector2i(1024, 629)
+visible = true
+ok_button_text = "Close"
+dialog_text = "Welcome to Time it Right!
+
+The goal of the game is to make the payload reach the end of the labyrinth.
+
+The payload has three exhaust pipes inside which explosives can be placed to propel the payload in the opposite direction. The explosives are detonated in the order they are connected by fuses.
+
+There are two kinds of explosives. The number indicates the explosive's power.
+There are four kind of fuses. The number indicates the time it takes for the fuse to burn out.
+
+Tutorial:
+Begin by selecting an explosive and place it near the exit of the exhaust pipe.
+Now you can select any fuse and click on the exhaust pipe exit to set the ignition fuse. This determines the explosive that will detonate first.
+Select and place another explosive and then select a fuse.
+Click on any of the four openings on an explosive and drag the wire to another explosive's opening. You can click on the wiring area to set an anchor point for the wire which locks the tail of the fuse wire in place. You can cancel wire placing by right clicking.
+Note that you can only edit explosives when an explosive is selected in the palette and you can only edit wires when a fuse is selected in the palette.
+The CLEAR button clears all the explosives and fuses in the payload.
+Finally, click ignite to see whether your wire programming reaches the end of the labyrinth. If it doesn't, you can click the Reset button to try again."
+dialog_autowrap = true
+
 [node name="AcceptDialog" type="AcceptDialog" parent="Camera2D"]
 title = "Level Completed"
 initial_position = 1
@@ -1230,7 +1255,8 @@ shape = SubResource("RectangleShape2D_62o2c")
 
 [node name="FireworkAudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
 stream = ExtResource("9_rgmso")
-volume_db = -3.0
+volume_db = -12.0
+pitch_scale = 0.75
 
 [node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
 stream = ExtResource("10_3dhr6")
@@ -1253,6 +1279,7 @@ scale = Vector2(0.99, 0.99)
 shape = SubResource("RectangleShape2D_n5ess")
 
 [connection signal="pressed" from="Camera2D/UI/Editing/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Camera2D/UI/Editing/Manual" to="." method="_on_manual_pressed"]
 [connection signal="pressed" from="Camera2D/UI/IgniteButton" to="." method="_on_ignite_button_pressed"]
 [connection signal="pressed" from="Camera2D/UI/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/L1" to="Camera2D/UI/Wiring/ExplosiveSlots/L1" method="_on_input_event"]

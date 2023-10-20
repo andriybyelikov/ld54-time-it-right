@@ -1038,3 +1038,7 @@ func _on_clear_pressed():
     
     # remove ignition fuse
     remove_ignition_fuse()
+
+
+func _on_manual_pressed():
+    get_node("Camera2D/Manual").visible = true
