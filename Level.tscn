@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://s5l58p0vrvyu"]
+[gd_scene load_steps=50 format=3 uid="uid://s5l58p0vrvyu"]
 
 [ext_resource type="Texture2D" uid="uid://dt1vpgu88lbwh" path="res://tileset.png" id="1_8wai3"]
 [ext_resource type="Script" path="res://Level.gd" id="1_x7jyn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://ignition.gd" id="6_hu8lt"]
 [ext_resource type="Script" path="res://wiring_node.gd" id="7_r1hys"]
 [ext_resource type="Script" path="res://wire_tilemap.gd" id="8_h5w3v"]
+[ext_resource type="AudioStream" uid="uid://de2ufmvpg0seh" path="res://firework.ogg" id="9_rgmso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emrar"]
 texture = ExtResource("1_8wai3")
@@ -1225,6 +1226,9 @@ script = ExtResource("8_h5w3v")
 shape = SubResource("RectangleShape2D_62o2c")
 
 [node name="WireTilemaps" type="Node2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Right"]
+
+[node name="FireworkAudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("9_rgmso")
 
 [node name="World" type="Node2D" parent="."]
 

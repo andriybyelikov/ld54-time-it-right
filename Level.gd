@@ -222,6 +222,9 @@ func _process(delta):
                     particle_emitter.initial_velocity_min = timed_impulse.impulse.length() * 0.50
                     particle_emitter.initial_velocity_max = timed_impulse.impulse.length() * 0.75
                     particle_emitter.emitting = true
+                    var firework_audio_stream_player: AudioStreamPlayer = get_node("Camera2D/FireworkAudioStreamPlayer")
+                    firework_audio_stream_player.seek(0.0)
+                    firework_audio_stream_player.play()
                     payload.apply_impulse(timed_impulse.impulse)
                 impulse_counter += 1
 
