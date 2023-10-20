@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://s5l58p0vrvyu"]
+[gd_scene load_steps=51 format=3 uid="uid://s5l58p0vrvyu"]
 
 [ext_resource type="Texture2D" uid="uid://dt1vpgu88lbwh" path="res://tileset.png" id="1_8wai3"]
 [ext_resource type="Script" path="res://Level.gd" id="1_x7jyn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://wiring_node.gd" id="7_r1hys"]
 [ext_resource type="Script" path="res://wire_tilemap.gd" id="8_h5w3v"]
 [ext_resource type="AudioStream" uid="uid://de2ufmvpg0seh" path="res://firework.ogg" id="9_rgmso"]
+[ext_resource type="AudioStream" uid="uid://6bslxvx6d4a1" path="res://bgm.ogg" id="10_3dhr6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emrar"]
 texture = ExtResource("1_8wai3")
@@ -1229,6 +1230,11 @@ shape = SubResource("RectangleShape2D_62o2c")
 
 [node name="FireworkAudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
 stream = ExtResource("9_rgmso")
+volume_db = -3.0
+
+[node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("10_3dhr6")
+autoplay = true
 
 [node name="World" type="Node2D" parent="."]
 
