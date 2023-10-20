@@ -1,0 +1,1431 @@
+[gd_scene load_steps=49 format=3 uid="uid://s5l58p0vrvyu"]
+
+[ext_resource type="Texture2D" uid="uid://dt1vpgu88lbwh" path="res://tileset.png" id="1_8wai3"]
+[ext_resource type="Script" path="res://Level.gd" id="1_x7jyn"]
+[ext_resource type="ButtonGroup" uid="uid://dgecq2wfbdeoc" path="res://palette_button_group.tres" id="3_72j0a"]
+[ext_resource type="ButtonGroup" uid="uid://dll1lcoei6x2w" path="res://editing_mode_button_group.tres" id="4_5mhu7"]
+[ext_resource type="Script" path="res://explosive_slot.gd" id="5_d2e73"]
+[ext_resource type="Script" path="res://ignition.gd" id="6_hu8lt"]
+[ext_resource type="Script" path="res://wiring_node.gd" id="7_r1hys"]
+[ext_resource type="Script" path="res://wire_tilemap.gd" id="8_h5w3v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emrar"]
+texture = ExtResource("1_8wai3")
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:1/0 = 0
+21:2/0 = 0
+22:3/0 = 0
+23:4/0 = 0
+23:5/0 = 0
+24:6/0 = 0
+25:7/0 = 0
+22:0/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+24:1/0 = 0
+24:0/0 = 0
+23:0/0 = 0
+21:0/0 = 0
+21:3/0 = 0
+21:4/0 = 0
+20:2/0 = 0
+20:3/0 = 0
+20:4/0 = 0
+20:1/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+24:2/0 = 0
+24:4/0 = 0
+24:5/0 = 0
+25:0/0 = 0
+25:1/0 = 0
+25:2/0 = 0
+25:3/0 = 0
+25:4/0 = 0
+25:5/0 = 0
+25:6/0 = 0
+22:4/0 = 0
+22:5/0 = 0
+22:6/0 = 0
+22:7/0 = 0
+23:6/0 = 0
+23:7/0 = 0
+24:7/0 = 0
+21:5/0 = 0
+21:6/0 = 0
+21:7/0 = 0
+20:5/0 = 0
+20:6/0 = 0
+20:7/0 = 0
+26:5/0 = 0
+26:6/0 = 0
+27:6/0 = 0
+27:7/0 = 0
+26:7/0 = 0
+27:5/0 = 0
+27:4/0 = 0
+26:4/0 = 0
+26:3/0 = 0
+26:2/0 = 0
+26:1/0 = 0
+26:0/0 = 0
+27:1/0 = 0
+27:2/0 = 0
+27:3/0 = 0
+27:0/0 = 0
+28:0/0 = 0
+29:0/0 = 0
+30:0/0 = 0
+31:0/0 = 0
+28:1/0 = 0
+29:1/0 = 0
+30:1/0 = 0
+31:1/0 = 0
+28:2/0 = 0
+29:2/0 = 0
+30:2/0 = 0
+31:2/0 = 0
+28:3/0 = 0
+29:3/0 = 0
+30:3/0 = 0
+31:3/0 = 0
+28:4/0 = 0
+29:4/0 = 0
+30:4/0 = 0
+31:4/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+30:5/0 = 0
+31:5/0 = 0
+28:6/0 = 0
+29:6/0 = 0
+30:6/0 = 0
+31:6/0 = 0
+28:7/0 = 0
+29:7/0 = 0
+30:7/0 = 0
+31:7/0 = 0
+32:0/0 = 0
+33:0/0 = 0
+34:0/0 = 0
+35:0/0 = 0
+32:1/0 = 0
+33:1/0 = 0
+34:1/0 = 0
+35:1/0 = 0
+32:2/0 = 0
+33:2/0 = 0
+34:2/0 = 0
+35:2/0 = 0
+32:3/0 = 0
+33:3/0 = 0
+34:3/0 = 0
+35:3/0 = 0
+32:4/0 = 0
+32:5/0 = 0
+33:6/0 = 0
+33:7/0 = 0
+33:5/0 = 0
+33:4/0 = 0
+32:6/0 = 0
+34:5/0 = 0
+34:4/0 = 0
+34:6/0 = 0
+34:7/0 = 0
+35:7/0 = 0
+35:6/0 = 0
+35:5/0 = 0
+35:4/0 = 0
+32:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2ocfw"]
+sources/0 = SubResource("TileSetAtlasSource_emrar")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ggc4"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e4ak"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0i5"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5gfc"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cf4c"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u6gv"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0ve6"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfloq"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fjrl"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gelqn"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ryql"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mstps"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_847dc"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up26i"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pthol"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yujy"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75pjo"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h212b"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(288, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvwfr"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wlfo"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xyp1"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2561"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cg0j"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(288, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cbt7"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(256, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbuxf"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw0md"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(512, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jegbj"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4a75"]
+atlas = ExtResource("1_8wai3")
+region = Rect2(544, 32, 32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qn876"]
+texture = ExtResource("1_8wai3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lgoit"]
+sources/0 = SubResource("TileSetAtlasSource_qn876")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqqsy"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woqxl"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh34j"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo1t2"]
+size = Vector2(224, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62o2c"]
+size = Vector2(96, 160)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unpef"]
+texture = ExtResource("1_8wai3")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_fjwee"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_unpef")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ess"]
+size = Vector2(64, 16)
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_x7jyn")
+tile_set = SubResource("TileSet_2ocfw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(176, -176)
+zoom = Vector2(2, 2)
+
+[node name="AcceptDialog" type="AcceptDialog" parent="Camera2D"]
+title = "Level Completed"
+initial_position = 1
+size = Vector2i(200, 80)
+
+[node name="UI" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Editing" type="Control" parent="Camera2D/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Explosives" type="Label" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = -192.0
+offset_right = 312.0
+offset_bottom = -171.0
+theme_override_font_sizes/font_size = 13
+text = "EXPLOSIVES"
+horizontal_alignment = 1
+
+[node name="Fuses" type="Label" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = -120.0
+offset_right = 312.0
+offset_bottom = -99.0
+theme_override_font_sizes/font_size = 13
+text = "FUSES"
+horizontal_alignment = 1
+
+[node name="Editing mode" type="Label" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 224.0
+offset_right = 319.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 13
+text = "EDITING
+MODE"
+horizontal_alignment = 1
+
+[node name="Explosive300" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = -168.0
+offset_right = 264.0
+offset_bottom = -136.0
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_6ggc4")
+texture_pressed = SubResource("AtlasTexture_1e4ak")
+texture_hover = SubResource("AtlasTexture_md0i5")
+
+[node name="Explosive600" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = -168.0
+offset_right = 312.0
+offset_bottom = -136.0
+toggle_mode = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_y5gfc")
+texture_pressed = SubResource("AtlasTexture_2cf4c")
+texture_hover = SubResource("AtlasTexture_6u6gv")
+
+[node name="Fuse050" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = -96.0
+offset_right = 264.0
+offset_bottom = -64.0
+toggle_mode = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_d0ve6")
+texture_pressed = SubResource("AtlasTexture_tfloq")
+texture_hover = SubResource("AtlasTexture_3fjrl")
+
+[node name="Fuse025" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = -96.0
+offset_right = 312.0
+offset_bottom = -64.0
+toggle_mode = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_gelqn")
+texture_pressed = SubResource("AtlasTexture_2ryql")
+texture_hover = SubResource("AtlasTexture_mstps")
+
+[node name="Fuse010" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = -48.0
+offset_right = 264.0
+offset_bottom = -16.0
+toggle_mode = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_847dc")
+texture_pressed = SubResource("AtlasTexture_up26i")
+texture_hover = SubResource("AtlasTexture_pthol")
+
+[node name="Fuse001" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = -48.0
+offset_right = 312.0
+offset_bottom = -16.0
+toggle_mode = true
+button_group = ExtResource("3_72j0a")
+texture_normal = SubResource("AtlasTexture_0yujy")
+texture_pressed = SubResource("AtlasTexture_75pjo")
+texture_hover = SubResource("AtlasTexture_h212b")
+
+[node name="Pencil" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 232.0
+offset_top = 48.0
+offset_right = 264.0
+offset_bottom = 80.0
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_5mhu7")
+texture_normal = SubResource("AtlasTexture_cvwfr")
+texture_pressed = SubResource("AtlasTexture_6wlfo")
+texture_hover = SubResource("AtlasTexture_4xyp1")
+
+[node name="Eraser" type="TextureButton" parent="Camera2D/UI/Editing"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = 48.0
+offset_right = 312.0
+offset_bottom = 80.0
+toggle_mode = true
+button_group = ExtResource("4_5mhu7")
+texture_normal = SubResource("AtlasTexture_o2561")
+texture_pressed = SubResource("AtlasTexture_6cg0j")
+texture_hover = SubResource("AtlasTexture_0cbt7")
+
+[node name="Clear" type="TextureButton" parent="Camera2D/UI/Editing"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 128.0
+texture_normal = SubResource("AtlasTexture_vbuxf")
+texture_hover = SubResource("AtlasTexture_dw0md")
+
+[node name="Manual" type="TextureButton" parent="Camera2D/UI/Editing"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 152.0
+offset_right = 288.0
+offset_bottom = 184.0
+texture_normal = SubResource("AtlasTexture_jegbj")
+texture_hover = SubResource("AtlasTexture_k4a75")
+
+[node name="TileMap" type="TileMap" parent="Camera2D/UI"]
+texture_filter = 1
+position = Vector2(112, -16)
+tile_set = SubResource("TileSet_lgoit")
+format = 2
+layer_0/tile_data = PackedInt32Array(-655368, 262144, 1, -589832, 262144, 2, -524296, 262144, 2, -458760, 262144, 2, -393224, 262144, 2, -327688, 262144, 2, -262152, 262144, 2, -65544, 262144, 2, -8, 262144, 2, 65528, 262144, 2, 131064, 262144, 2, 196600, 262144, 2, 262136, 262144, 2, 327672, 262144, 2, 393208, 262144, 2, 458744, 262144, 2, 524280, 262144, 2, 589816, 262144, 3, -655367, 262144, 1, -589831, 262144, 2, -524295, 262144, 2, -458759, 262144, 2, -393223, 262144, 2, -327687, 262144, 2, -262151, 262144, 2, -196615, 196608, 6, -131079, 196608, 7, -65543, 262144, 2, -7, 262144, 2, 65529, 262144, 2, 131065, 262144, 2, 196601, 262144, 2, 262137, 262144, 2, 327673, 262144, 2, 393209, 262144, 2, 458745, 262144, 2, 524281, 262144, 2, 589817, 262144, 3, -655366, 262144, 1, -589830, 262144, 2, -524294, 262144, 2, -458758, 262144, 2, -393222, 262144, 2, -327686, 262144, 2, -262150, 262144, 2, -196614, 131072, 6, -131078, 131072, 7, -65542, 262144, 2, -6, 262144, 2, 65530, 262144, 2, 131066, 262144, 2, 196602, 262144, 2, 262138, 262144, 2, 327674, 262144, 2, 393210, 262144, 2, 458746, 262144, 2, 524282, 262144, 2, 589818, 262144, 3, -655365, 262144, 1, -589829, 262144, 2, -524293, 262144, 2, -458757, 262144, 2, -393221, 262144, 2, -327685, 262144, 2, -262149, 262144, 2, -196613, 196608, 6, -131077, 196608, 7, -65541, 262144, 2, -5, 262144, 2, 65531, 262144, 2, 131067, 262144, 2, 196603, 262144, 2, 262139, 262144, 2, 327675, 262144, 2, 393211, 262144, 2, 458747, 262144, 2, 524283, 262144, 2, 589819, 262144, 3, -655364, 262144, 1, -589828, 262144, 2, -524292, 262144, 2, -458756, 262144, 2, -393220, 262144, 2, -327684, 262144, 2, -262148, 262144, 2, -196612, 131072, 6, -131076, 131072, 7, -65540, 262144, 2, -4, 262144, 2, 65532, 262144, 2, 131068, 262144, 2, 196604, 262144, 2, 262140, 262144, 2, 327676, 262144, 2, 393212, 262144, 2, 458748, 262144, 2, 524284, 262144, 2, 589820, 262144, 3, -655363, 262144, 1, -589827, 262144, 2, -524291, 262144, 2, -458755, 262144, 2, -393219, 262144, 2, -327683, 262144, 2, -262147, 262144, 2, -196611, 196608, 6, -131075, 196608, 7, -65539, 262144, 2, -3, 262144, 2, 65533, 262144, 2, 131069, 262144, 2, 196605, 262144, 2, 262141, 262144, 2, 327677, 262144, 2, 393213, 262144, 2, 458749, 262144, 2, 524285, 262144, 2, 589821, 458752, 1, -655362, 262144, 1, -589826, 262144, 2, -524290, 262144, 2, -458754, 262144, 2, -393218, 262144, 2, -327682, 262144, 2, -262146, 262144, 2, -196610, 0, 6, -131074, 0, 7, -65538, 262144, 6, -2, 262144, 7, 65534, 262144, 6, 131070, 262144, 7, 196606, 262144, 6, 262142, 262144, 7, 327678, 262144, 6, 393214, 262144, 7, 458750, 262144, 6, 524286, 262144, 7, -655361, 262144, 1, -589825, 262144, 2, -524289, 262144, 2, -458753, 262144, 2, -393217, 262144, 2, -327681, 262144, 2, -262145, 262144, 2, -196609, 65536, 6, -131073, 65536, 7, -65537, 327680, 6, -1, 327680, 7, 65535, 327680, 6, 131071, 327680, 7, 196607, 327680, 6, 262143, 327680, 7, 327679, 327680, 6, 393215, 327680, 7, 458751, 327680, 6, 524287, 327680, 7, -720896, 262144, 1, -655360, 262144, 2, -589824, 262144, 2, -524288, 262144, 2, -458752, 262144, 2, -393216, 262144, 2, -327680, 262144, 2, -262144, 393216, 6, -196608, 393216, 7, -131072, 262144, 2, -65536, 262144, 2, 0, 262144, 2, 65536, 262144, 2, 131072, 262144, 2, 196608, 262144, 2, 262144, 262144, 2, 327680, 262144, 2, 393216, 262144, 2, 458752, 262144, 2, -720895, 262144, 1, -655359, 262144, 2, -589823, 262144, 2, -524287, 262144, 2, -458751, 262144, 2, -393215, 262144, 2, -327679, 262144, 2, -262143, 458752, 6, -196607, 458752, 7, -131071, 262144, 2, -65535, 262144, 2, 1, 262144, 2, 65537, 262144, 2, 131073, 262144, 2, 196609, 262144, 2, 262145, 262144, 2, 327681, 262144, 2, 393217, 262144, 2, 458753, 262144, 2, 524289, 262144, 3, -720894, 262144, 1, -655358, 262144, 2, -589822, 262144, 2, -524286, 262144, 2, -458750, 262144, 2, -393214, 262144, 2, -327678, 262144, 2, -262142, 393216, 6, -196606, 393216, 7, -131070, 262144, 2, -65534, 262144, 2, 2, 262144, 2, 65538, 262144, 2, 131074, 262144, 2, 196610, 262144, 2, 262146, 262144, 2, 327682, 262144, 2, 393218, 262144, 2, 458754, 262144, 2, 524290, 262144, 3, -720893, 262144, 1, -655357, 262144, 2, -589821, 262144, 2, -524285, 262144, 2, -458749, 262144, 2, -393213, 262144, 2, -327677, 262144, 2, -262141, 458752, 6, -196605, 458752, 7, -131069, 262144, 2, -65533, 262144, 2, 3, 262144, 2, 65539, 262144, 2, 131075, 262144, 2, 196611, 262144, 2, 262147, 262144, 2, 327683, 262144, 2, 393219, 262144, 2, 458755, 262144, 2, 524291, 262144, 3, -720892, 262144, 1, -655356, 262144, 2, -589820, 262144, 2, -524284, 262144, 2, -458748, 262144, 2, -393212, 262144, 2, -327676, 262144, 2, -262140, 393216, 6, -196604, 393216, 7, -131068, 262144, 2, -65532, 262144, 2, 4, 262144, 2, 65540, 262144, 2, 131076, 262144, 2, 196612, 262144, 2, 262148, 262144, 2, 327684, 262144, 2, 393220, 262144, 2, 458756, 262144, 2, 524292, 262144, 3, -720891, 262144, 1, -655355, 262144, 2, -589819, 262144, 2, -524283, 262144, 2, -458747, 262144, 2, -393211, 262144, 2, -327675, 262144, 2, -262139, 458752, 6, -196603, 458752, 7, -131067, 262144, 2, -65531, 262144, 2, 5, 262144, 2, 65541, 262144, 2, 131077, 262144, 2, 196613, 262144, 2, 262149, 262144, 2, 327685, 262144, 2, 393221, 262144, 2, 458757, 262144, 2, 524293, 262144, 3, -720890, 327680, 1, -655354, 327680, 2, -589818, 327680, 2, -524282, 327680, 2, -458746, 327680, 2, -393210, 327680, 2, -327674, 458752, 2, -131066, 393216, 2, -65530, 327680, 2, 6, 327680, 2, 65542, 327680, 2, 131078, 327680, 2, 196614, 327680, 2, 262150, 327680, 2, 327686, 327680, 2, 393222, 327680, 2, 458758, 327680, 2, 524294, 327680, 3, -655369, 196608, 1, -589833, 196608, 2, -524297, 196608, 2, -458761, 196608, 2, -393225, 196608, 2, -327689, 196608, 2, -262153, 458752, 2, -65545, 393216, 2, -9, 196608, 2, 65527, 196608, 2, 131063, 196608, 2, 196599, 196608, 2, 262135, 196608, 2, 327671, 196608, 2, 393207, 196608, 2, 458743, 196608, 2, 524279, 196608, 2, 589815, 196608, 3, -196616, 131072, 6, -131080, 131072, 7, 524288, 393216, 1, 589822, 393216, 0, 589823, 458752, 0, -131081, 262144, 0, -196617, 196608, 0, -262138, 196608, 0, -196602, 262144, 0)
+
+[node name="IgniteButton" type="Button" parent="Camera2D/UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -32.0
+offset_top = 152.0
+offset_right = 224.0
+offset_bottom = 183.0
+text = "Ignite"
+
+[node name="ResetButton" type="Button" parent="Camera2D/UI"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -32.0
+offset_top = 152.0
+offset_right = 224.0
+offset_bottom = 183.0
+text = "Reset"
+
+[node name="Wiring" type="Control" parent="Camera2D/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExplosiveSlots" type="Control" parent="Camera2D/UI/Wiring"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L1" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(0, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L1"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L1"]
+
+[node name="L2" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(32, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L2"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L2"]
+
+[node name="L3" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(64, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L3"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/L3"]
+
+[node name="R1" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(192, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R1"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R1"]
+
+[node name="R2" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(160, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R2"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R2"]
+
+[node name="R3" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(128, -64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R3"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/R3"]
+
+[node name="B1" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(96, 96)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B1"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B1"]
+
+[node name="B2" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(96, 64)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B2"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B2"]
+
+[node name="B3" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(96, 32)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B3"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B3"]
+
+[node name="B4" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(96, 0)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B4"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B4"]
+
+[node name="B5" type="Area2D" parent="Camera2D/UI/Wiring/ExplosiveSlots"]
+position = Vector2(96, -32)
+script = ExtResource("5_d2e73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B5"]
+shape = SubResource("RectangleShape2D_bqqsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/ExplosiveSlots/B5"]
+
+[node name="IgnitionSlots" type="Control" parent="Camera2D/UI/Wiring"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L" type="Area2D" parent="Camera2D/UI/Wiring/IgnitionSlots"]
+position = Vector2(-24, -64)
+script = ExtResource("6_hu8lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/IgnitionSlots/L"]
+shape = SubResource("RectangleShape2D_woqxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/IgnitionSlots/L"]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_8wai3")
+region_enabled = true
+region_rect = Rect2(96, 48, 16, 16)
+
+[node name="R" type="Area2D" parent="Camera2D/UI/Wiring/IgnitionSlots"]
+position = Vector2(216, -64)
+script = ExtResource("6_hu8lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/IgnitionSlots/R"]
+shape = SubResource("RectangleShape2D_woqxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/IgnitionSlots/R"]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_8wai3")
+region_enabled = true
+region_rect = Rect2(112, 48, 16, 16)
+
+[node name="B" type="Area2D" parent="Camera2D/UI/Wiring/IgnitionSlots"]
+position = Vector2(96, 120)
+script = ExtResource("6_hu8lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/IgnitionSlots/B"]
+shape = SubResource("RectangleShape2D_woqxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/UI/Wiring/IgnitionSlots/B"]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_8wai3")
+region_enabled = true
+region_rect = Rect2(16, 32, 16, 16)
+
+[node name="WiringNodes" type="Control" parent="Camera2D/UI/Wiring"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L1TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(-8, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L1TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L1TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(8, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L1TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L2TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(24, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L2TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L2TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(40, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L2TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L3TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(56, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L3TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L3TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(72, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L3TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R1TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(200, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R1TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R1TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(184, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R1TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R2TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(168, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R2TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R2TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(152, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R2TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R3TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(136, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R3TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R3TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(120, -72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R3TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R3BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(120, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R3BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R3BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(136, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R3BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R2BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(152, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R2BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R2BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(168, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R2BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R1BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(184, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R1BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="R1BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(200, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/R1BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L1BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(-8, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L1BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L1BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(8, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L1BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L2BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(24, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L2BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L2BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(40, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L2BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L3BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(56, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L3BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="L3BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(72, -56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/L3BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B1BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 104)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B1BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B1BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 104)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B1BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B1TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 88)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B1TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B1TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 88)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B1TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B2BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B2BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B2BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 72)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B2BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B2TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B2TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B2TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 56)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B2TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B3BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 40)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B3BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B3BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 40)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B3BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B3TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 24)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B3TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B3TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 24)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B3TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B4TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, -8)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B4TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B4TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, -8)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B4TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B4BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, 8)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B4BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B4BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, 8)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B4BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B5TL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, -40)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B5TL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B5TR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, -40)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B5TR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B5BL" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(88, -24)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B5BL"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="B5BR" type="Area2D" parent="Camera2D/UI/Wiring/WiringNodes"]
+position = Vector2(104, -24)
+script = ExtResource("7_r1hys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/WiringNodes/B5BR"]
+shape = SubResource("RectangleShape2D_oh34j")
+
+[node name="ValidWireAreas" type="Control" parent="Camera2D/UI/Wiring"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Top" type="Area2D" parent="Camera2D/UI/Wiring/ValidWireAreas"]
+position = Vector2(96, -128)
+script = ExtResource("8_h5w3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Top"]
+shape = SubResource("RectangleShape2D_jo1t2")
+
+[node name="WireTilemaps" type="Node2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Top"]
+
+[node name="Left" type="Area2D" parent="Camera2D/UI/Wiring/ValidWireAreas"]
+position = Vector2(32, 32)
+script = ExtResource("8_h5w3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Left"]
+shape = SubResource("RectangleShape2D_62o2c")
+
+[node name="WireTilemaps" type="Node2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Left"]
+
+[node name="Right" type="Area2D" parent="Camera2D/UI/Wiring/ValidWireAreas"]
+position = Vector2(160, 32)
+script = ExtResource("8_h5w3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Right"]
+shape = SubResource("RectangleShape2D_62o2c")
+
+[node name="WireTilemaps" type="Node2D" parent="Camera2D/UI/Wiring/ValidWireAreas/Right"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="World"]
+texture_filter = 1
+tile_set = SubResource("TileSet_fjwee")
+format = 2
+layer_0/tile_data = PackedInt32Array(65528, 65537, 0, 7, 65537, 0, 6, 65537, 0, 5, 65537, 0, 4, 65537, 0, 3, 65537, 0, 2, 65537, 0, 1, 65537, 0, 0, 65537, 0, 65535, 65537, 0, 65534, 65537, 0, 65533, 65537, 0, 65532, 65537, 0, 65531, 65537, 0, 65530, 65537, 0, 65529, 65537, 0, -786440, 65537, 0, -720904, 65537, 0, -655368, 65537, 0, -589832, 65537, 0, -851961, 65537, 0, -786425, 65537, 0, -720889, 65537, 0, -655353, 65537, 0, -589817, 65537, 0, -524281, 65537, 0, -458745, 65537, 0, -393209, 65537, 0, -327673, 65537, 0, -262137, 65537, 0, -196601, 65537, 0, -131065, 65537, 0, -65529, 65537, 0, -524296, 65537, 0, -458760, 65537, 0, -393224, 65537, 0, -327688, 65537, 0, -262152, 65537, 0, -196616, 65537, 0, -131080, 65537, 0, -65544, 65537, 0, -8, 65537, 0, -1441800, 65537, 0, -1376264, 65537, 0, -1310728, 65537, 0, -1245192, 65537, 0, -1179656, 65537, 0, -1114120, 65537, 0, -1048584, 65537, 0, -983048, 65537, 0, -917512, 65537, 0, -851976, 65537, 0, -1507321, 65537, 0, -1441785, 65537, 0, -1376249, 65537, 0, -1310713, 65537, 0, -1245177, 65537, 0, -1179641, 65537, 0, -1114105, 65537, 0, -1048569, 65537, 0, -983033, 65537, 0, -917497, 65537, 0, -1441799, 65537, 0, -786439, 65537, 0, -1441798, 65537, 0, -786438, 65537, 0, -1441797, 65537, 0, -786437, 65537, 0, -1441796, 65537, 0, -786436, 65537, 0, -1441795, 65537, 0, -1114115, 65537, 0, -786435, 65537, 0, -1114114, 65537, 0, -786434, 65537, 0, -1114113, 65537, 0, -786433, 65537, 0, -1179648, 65537, 0, -851968, 65537, 0, -1179647, 65537, 0, -851967, 65537, 0, -1507326, 65537, 0, -1179646, 65537, 0, -851966, 65537, 0, -1507325, 65537, 0, -1179645, 65537, 0, -1507324, 65537, 0, -1179644, 65537, 0, -1507323, 65537, 0, -1179643, 65537, 0, -1507322, 65537, 0, -1179642, 65537, 0)
+
+[node name="Area2D" type="Area2D" parent="World"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Area2D"]
+position = Vector2(0, -376)
+scale = Vector2(0.99, 0.99)
+shape = SubResource("RectangleShape2D_n5ess")
+
+[connection signal="pressed" from="Camera2D/UI/Editing/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Camera2D/UI/IgniteButton" to="." method="_on_ignite_button_pressed"]
+[connection signal="pressed" from="Camera2D/UI/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/L1" to="Camera2D/UI/Wiring/ExplosiveSlots/L1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/L1" to="Camera2D/UI/Wiring/ExplosiveSlots/L1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/L1" to="Camera2D/UI/Wiring/ExplosiveSlots/L1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/L2" to="Camera2D/UI/Wiring/ExplosiveSlots/L2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/L2" to="Camera2D/UI/Wiring/ExplosiveSlots/L2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/L2" to="Camera2D/UI/Wiring/ExplosiveSlots/L2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/L3" to="Camera2D/UI/Wiring/ExplosiveSlots/L3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/L3" to="Camera2D/UI/Wiring/ExplosiveSlots/L3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/L3" to="Camera2D/UI/Wiring/ExplosiveSlots/L3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/R1" to="Camera2D/UI/Wiring/ExplosiveSlots/R1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/R1" to="Camera2D/UI/Wiring/ExplosiveSlots/R1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/R1" to="Camera2D/UI/Wiring/ExplosiveSlots/R1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/R2" to="Camera2D/UI/Wiring/ExplosiveSlots/R2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/R2" to="Camera2D/UI/Wiring/ExplosiveSlots/R2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/R2" to="Camera2D/UI/Wiring/ExplosiveSlots/R2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/R3" to="Camera2D/UI/Wiring/ExplosiveSlots/R3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/R3" to="Camera2D/UI/Wiring/ExplosiveSlots/R3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/R3" to="Camera2D/UI/Wiring/ExplosiveSlots/R3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/B1" to="Camera2D/UI/Wiring/ExplosiveSlots/B1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/B1" to="Camera2D/UI/Wiring/ExplosiveSlots/B1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/B1" to="Camera2D/UI/Wiring/ExplosiveSlots/B1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/B2" to="Camera2D/UI/Wiring/ExplosiveSlots/B2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/B2" to="Camera2D/UI/Wiring/ExplosiveSlots/B2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/B2" to="Camera2D/UI/Wiring/ExplosiveSlots/B2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/B3" to="Camera2D/UI/Wiring/ExplosiveSlots/B3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/B3" to="Camera2D/UI/Wiring/ExplosiveSlots/B3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/B3" to="Camera2D/UI/Wiring/ExplosiveSlots/B3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/B4" to="Camera2D/UI/Wiring/ExplosiveSlots/B4" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/B4" to="Camera2D/UI/Wiring/ExplosiveSlots/B4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/B4" to="Camera2D/UI/Wiring/ExplosiveSlots/B4" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ExplosiveSlots/B5" to="Camera2D/UI/Wiring/ExplosiveSlots/B5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ExplosiveSlots/B5" to="Camera2D/UI/Wiring/ExplosiveSlots/B5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ExplosiveSlots/B5" to="Camera2D/UI/Wiring/ExplosiveSlots/B5" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/IgnitionSlots/L" to="Camera2D/UI/Wiring/IgnitionSlots/L" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/IgnitionSlots/L" to="Camera2D/UI/Wiring/IgnitionSlots/L" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/IgnitionSlots/L" to="Camera2D/UI/Wiring/IgnitionSlots/L" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/IgnitionSlots/R" to="Camera2D/UI/Wiring/IgnitionSlots/R" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/IgnitionSlots/R" to="Camera2D/UI/Wiring/IgnitionSlots/R" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/IgnitionSlots/R" to="Camera2D/UI/Wiring/IgnitionSlots/R" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/IgnitionSlots/B" to="Camera2D/UI/Wiring/IgnitionSlots/B" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/IgnitionSlots/B" to="Camera2D/UI/Wiring/IgnitionSlots/B" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/IgnitionSlots/B" to="Camera2D/UI/Wiring/IgnitionSlots/B" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L1TL" to="Camera2D/UI/Wiring/WiringNodes/L1TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L1TL" to="Camera2D/UI/Wiring/WiringNodes/L1TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L1TL" to="Camera2D/UI/Wiring/WiringNodes/L1TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L1TR" to="Camera2D/UI/Wiring/WiringNodes/L1TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L1TR" to="Camera2D/UI/Wiring/WiringNodes/L1TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L1TR" to="Camera2D/UI/Wiring/WiringNodes/L1TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L2TL" to="Camera2D/UI/Wiring/WiringNodes/L2TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L2TL" to="Camera2D/UI/Wiring/WiringNodes/L2TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L2TL" to="Camera2D/UI/Wiring/WiringNodes/L2TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L2TR" to="Camera2D/UI/Wiring/WiringNodes/L2TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L2TR" to="Camera2D/UI/Wiring/WiringNodes/L2TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L2TR" to="Camera2D/UI/Wiring/WiringNodes/L2TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L3TL" to="Camera2D/UI/Wiring/WiringNodes/L3TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L3TL" to="Camera2D/UI/Wiring/WiringNodes/L3TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L3TL" to="Camera2D/UI/Wiring/WiringNodes/L3TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L3TR" to="Camera2D/UI/Wiring/WiringNodes/L3TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L3TR" to="Camera2D/UI/Wiring/WiringNodes/L3TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L3TR" to="Camera2D/UI/Wiring/WiringNodes/L3TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R1TR" to="Camera2D/UI/Wiring/WiringNodes/R1TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R1TR" to="Camera2D/UI/Wiring/WiringNodes/R1TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R1TR" to="Camera2D/UI/Wiring/WiringNodes/R1TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R1TL" to="Camera2D/UI/Wiring/WiringNodes/R1TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R1TL" to="Camera2D/UI/Wiring/WiringNodes/R1TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R1TL" to="Camera2D/UI/Wiring/WiringNodes/R1TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R2TR" to="Camera2D/UI/Wiring/WiringNodes/R2TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R2TR" to="Camera2D/UI/Wiring/WiringNodes/R2TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R2TR" to="Camera2D/UI/Wiring/WiringNodes/R2TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R2TL" to="Camera2D/UI/Wiring/WiringNodes/R2TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R2TL" to="Camera2D/UI/Wiring/WiringNodes/R2TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R2TL" to="Camera2D/UI/Wiring/WiringNodes/R2TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R3TR" to="Camera2D/UI/Wiring/WiringNodes/R3TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R3TR" to="Camera2D/UI/Wiring/WiringNodes/R3TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R3TR" to="Camera2D/UI/Wiring/WiringNodes/R3TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R3TL" to="Camera2D/UI/Wiring/WiringNodes/R3TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R3TL" to="Camera2D/UI/Wiring/WiringNodes/R3TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R3TL" to="Camera2D/UI/Wiring/WiringNodes/R3TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R3BL" to="Camera2D/UI/Wiring/WiringNodes/R3BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R3BL" to="Camera2D/UI/Wiring/WiringNodes/R3BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R3BL" to="Camera2D/UI/Wiring/WiringNodes/R3BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R3BR" to="Camera2D/UI/Wiring/WiringNodes/R3BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R3BR" to="Camera2D/UI/Wiring/WiringNodes/R3BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R3BR" to="Camera2D/UI/Wiring/WiringNodes/R3BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R2BL" to="Camera2D/UI/Wiring/WiringNodes/R2BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R2BL" to="Camera2D/UI/Wiring/WiringNodes/R2BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R2BL" to="Camera2D/UI/Wiring/WiringNodes/R2BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R2BR" to="Camera2D/UI/Wiring/WiringNodes/R2BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R2BR" to="Camera2D/UI/Wiring/WiringNodes/R2BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R2BR" to="Camera2D/UI/Wiring/WiringNodes/R2BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R1BL" to="Camera2D/UI/Wiring/WiringNodes/R1BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R1BL" to="Camera2D/UI/Wiring/WiringNodes/R1BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R1BL" to="Camera2D/UI/Wiring/WiringNodes/R1BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/R1BR" to="Camera2D/UI/Wiring/WiringNodes/R1BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/R1BR" to="Camera2D/UI/Wiring/WiringNodes/R1BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/R1BR" to="Camera2D/UI/Wiring/WiringNodes/R1BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L1BL" to="Camera2D/UI/Wiring/WiringNodes/L1BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L1BL" to="Camera2D/UI/Wiring/WiringNodes/L1BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L1BL" to="Camera2D/UI/Wiring/WiringNodes/L1BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L1BR" to="Camera2D/UI/Wiring/WiringNodes/L1BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L1BR" to="Camera2D/UI/Wiring/WiringNodes/L1BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L1BR" to="Camera2D/UI/Wiring/WiringNodes/L1BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L2BL" to="Camera2D/UI/Wiring/WiringNodes/L2BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L2BL" to="Camera2D/UI/Wiring/WiringNodes/L2BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L2BL" to="Camera2D/UI/Wiring/WiringNodes/L2BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L2BR" to="Camera2D/UI/Wiring/WiringNodes/L2BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L2BR" to="Camera2D/UI/Wiring/WiringNodes/L2BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L2BR" to="Camera2D/UI/Wiring/WiringNodes/L2BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L3BL" to="Camera2D/UI/Wiring/WiringNodes/L3BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L3BL" to="Camera2D/UI/Wiring/WiringNodes/L3BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L3BL" to="Camera2D/UI/Wiring/WiringNodes/L3BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/L3BR" to="Camera2D/UI/Wiring/WiringNodes/L3BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/L3BR" to="Camera2D/UI/Wiring/WiringNodes/L3BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/L3BR" to="Camera2D/UI/Wiring/WiringNodes/L3BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B1BL" to="Camera2D/UI/Wiring/WiringNodes/B1BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B1BL" to="Camera2D/UI/Wiring/WiringNodes/B1BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B1BL" to="Camera2D/UI/Wiring/WiringNodes/B1BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B1BR" to="Camera2D/UI/Wiring/WiringNodes/B1BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B1BR" to="Camera2D/UI/Wiring/WiringNodes/B1BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B1BR" to="Camera2D/UI/Wiring/WiringNodes/B1BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B1TL" to="Camera2D/UI/Wiring/WiringNodes/B1TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B1TL" to="Camera2D/UI/Wiring/WiringNodes/B1TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B1TL" to="Camera2D/UI/Wiring/WiringNodes/B1TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B1TR" to="Camera2D/UI/Wiring/WiringNodes/B1TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B1TR" to="Camera2D/UI/Wiring/WiringNodes/B1TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B1TR" to="Camera2D/UI/Wiring/WiringNodes/B1TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B2BL" to="Camera2D/UI/Wiring/WiringNodes/B2BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B2BL" to="Camera2D/UI/Wiring/WiringNodes/B2BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B2BL" to="Camera2D/UI/Wiring/WiringNodes/B2BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B2BR" to="Camera2D/UI/Wiring/WiringNodes/B2BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B2BR" to="Camera2D/UI/Wiring/WiringNodes/B2BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B2BR" to="Camera2D/UI/Wiring/WiringNodes/B2BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B2TL" to="Camera2D/UI/Wiring/WiringNodes/B2TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B2TL" to="Camera2D/UI/Wiring/WiringNodes/B2TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B2TL" to="Camera2D/UI/Wiring/WiringNodes/B2TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B2TR" to="Camera2D/UI/Wiring/WiringNodes/B2TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B2TR" to="Camera2D/UI/Wiring/WiringNodes/B2TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B2TR" to="Camera2D/UI/Wiring/WiringNodes/B2TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B3BL" to="Camera2D/UI/Wiring/WiringNodes/B3BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B3BL" to="Camera2D/UI/Wiring/WiringNodes/B3BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B3BL" to="Camera2D/UI/Wiring/WiringNodes/B3BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B3BR" to="Camera2D/UI/Wiring/WiringNodes/B3BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B3BR" to="Camera2D/UI/Wiring/WiringNodes/B3BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B3BR" to="Camera2D/UI/Wiring/WiringNodes/B3BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B3TL" to="Camera2D/UI/Wiring/WiringNodes/B3TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B3TL" to="Camera2D/UI/Wiring/WiringNodes/B3TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B3TL" to="Camera2D/UI/Wiring/WiringNodes/B3TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B3TR" to="Camera2D/UI/Wiring/WiringNodes/B3TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B3TR" to="Camera2D/UI/Wiring/WiringNodes/B3TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B3TR" to="Camera2D/UI/Wiring/WiringNodes/B3TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B4TL" to="Camera2D/UI/Wiring/WiringNodes/B4TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B4TL" to="Camera2D/UI/Wiring/WiringNodes/B4TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B4TL" to="Camera2D/UI/Wiring/WiringNodes/B4TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B4TR" to="Camera2D/UI/Wiring/WiringNodes/B4TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B4TR" to="Camera2D/UI/Wiring/WiringNodes/B4TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B4TR" to="Camera2D/UI/Wiring/WiringNodes/B4TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B4BL" to="Camera2D/UI/Wiring/WiringNodes/B4BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B4BL" to="Camera2D/UI/Wiring/WiringNodes/B4BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B4BL" to="Camera2D/UI/Wiring/WiringNodes/B4BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B4BR" to="Camera2D/UI/Wiring/WiringNodes/B4BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B4BR" to="Camera2D/UI/Wiring/WiringNodes/B4BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B4BR" to="Camera2D/UI/Wiring/WiringNodes/B4BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B5TL" to="Camera2D/UI/Wiring/WiringNodes/B5TL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B5TL" to="Camera2D/UI/Wiring/WiringNodes/B5TL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B5TL" to="Camera2D/UI/Wiring/WiringNodes/B5TL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B5TR" to="Camera2D/UI/Wiring/WiringNodes/B5TR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B5TR" to="Camera2D/UI/Wiring/WiringNodes/B5TR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B5TR" to="Camera2D/UI/Wiring/WiringNodes/B5TR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B5BL" to="Camera2D/UI/Wiring/WiringNodes/B5BL" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B5BL" to="Camera2D/UI/Wiring/WiringNodes/B5BL" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B5BL" to="Camera2D/UI/Wiring/WiringNodes/B5BL" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/WiringNodes/B5BR" to="Camera2D/UI/Wiring/WiringNodes/B5BR" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/WiringNodes/B5BR" to="Camera2D/UI/Wiring/WiringNodes/B5BR" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/WiringNodes/B5BR" to="Camera2D/UI/Wiring/WiringNodes/B5BR" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ValidWireAreas/Top" to="Camera2D/UI/Wiring/ValidWireAreas/Top" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ValidWireAreas/Top" to="Camera2D/UI/Wiring/ValidWireAreas/Top" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ValidWireAreas/Top" to="Camera2D/UI/Wiring/ValidWireAreas/Top" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ValidWireAreas/Left" to="Camera2D/UI/Wiring/ValidWireAreas/Left" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ValidWireAreas/Left" to="Camera2D/UI/Wiring/ValidWireAreas/Left" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ValidWireAreas/Left" to="Camera2D/UI/Wiring/ValidWireAreas/Left" method="_on_mouse_exited"]
+[connection signal="input_event" from="Camera2D/UI/Wiring/ValidWireAreas/Right" to="Camera2D/UI/Wiring/ValidWireAreas/Right" method="_on_input_event"]
+[connection signal="mouse_entered" from="Camera2D/UI/Wiring/ValidWireAreas/Right" to="Camera2D/UI/Wiring/ValidWireAreas/Right" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/UI/Wiring/ValidWireAreas/Right" to="Camera2D/UI/Wiring/ValidWireAreas/Right" method="_on_mouse_exited"]
+[connection signal="body_entered" from="World/Area2D" to="." method="_on_area_2d_body_entered"]
