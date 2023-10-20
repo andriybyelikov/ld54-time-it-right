@@ -64,6 +64,9 @@ var soft_path: PackedVector2Array
 # keep track of which area the player is currently placing the wire in
 var placing_wire_area: String
 
+# path anchor points
+var anchor_points: Array[Vector2i]
+
 
 # Pathfinding data structures for computing the wiring paths
 var astar_grid_top: AStarGrid2D
@@ -157,6 +160,7 @@ func _ready():
     wire_edge_to = ""
     wire_edge_to_soft = ""
     placing_wire_area = ""
+    anchor_points = []
 
 
     reset_astar_grids()
@@ -523,6 +527,11 @@ func set_soft_wire_edge_to():
     add_wire_edge(edge, true, target)
 
 
+func add_wire_path_anchor_point_if_possible(point: Vector2i):
+    if point not in anchor_points:
+        anchor_points.append(point)
+
+
 func add_fuse_edge_node(node_name: String):
     if wire_edge_from == "":
         set_wire_edge_from(node_name)
@@ -548,7 +557,7 @@ func add_fuse_edge_node(node_name: String):
         
         
         
-        print("Adding WireEdge: " + wire_edge_from + " to " + wire_edge_to + " @ " + fuse_value_string + "s")
+#        print("Adding WireEdge: " + wire_edge_from + " to " + wire_edge_to + " @ " + fuse_value_string + "s")
         wire_edges.append(edge)
         wire_tile_map.clear()
         add_wire_edge(edge, false, Vector2i.ZERO)
@@ -556,9 +565,28 @@ func add_fuse_edge_node(node_name: String):
         wire_edge_from = ""
         wire_edge_to = ""
         wire_edge_to_soft = ""
+        placing_wire_area = ""
+        anchor_points = []
         
         wire_tile_map = null
 
+
+func cancel_wire_placing():
+    if placing_wire_area == "Top":
+        wire_tile_map_top.queue_free()
+        wire_tile_map_top = null
+    elif placing_wire_area == "Left":
+        wire_tile_map_left.queue_free()
+        wire_tile_map_left = null
+    elif placing_wire_area == "Right":
+        wire_tile_map_right.queue_free()
+        wire_tile_map_right = null
+    
+    wire_edge_from = ""
+    wire_edge_to = ""
+    wire_edge_to_soft = ""
+    placing_wire_area = ""
+    anchor_points = []
 
 # maps node name to A* grid point
 func compute_point_from_name(name: String):
@@ -610,8 +638,6 @@ func compute_point_from_name(name: String):
             y += 0
         else: # name[2] == 'B'
             y += 1
-        
-        
     
     return Vector2i(x, y)
 
@@ -637,7 +663,16 @@ func add_wire_edge(e: WireEdge, soft_mode: bool, soft_target: Vector2i):
     elif (node_name[0] == 'R' and node_name[2] == 'B') or (node_name[0] == 'B' and node_name[3] == 'R'):
         astar_grid = astar_grid_right
     
-    var id_path: PackedVector2Array = astar_grid.get_id_path(origin, target)
+    # compute combined path passing through anchor points
+    var id_path: PackedVector2Array = PackedVector2Array()
+    for anchor_point in anchor_points:
+        var id_subpath: PackedVector2Array = astar_grid.get_id_path(origin, anchor_point)
+        id_subpath.remove_at(id_subpath.size() - 1)
+        id_path.append_array(id_subpath)
+        origin = anchor_point
+    
+    # final segment
+    id_path.append_array(astar_grid.get_id_path(origin, target))
     
     if not soft_mode:
         e.path = id_path

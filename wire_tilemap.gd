@@ -29,7 +29,6 @@ func _process(delta):
             assert(tile_map != null)
             
             var cell = tile_map.local_to_map(tile_map.get_local_mouse_position())
-            print(cell)
             var data = tile_map.get_cell_tile_data(0, cell)
             if data:
                 if root_node.get_current_edit_mode() == root_node.EditMode.WRITE:
@@ -48,10 +47,10 @@ func _process(delta):
 func _on_input_event(viewport, event, shape_idx):
     if event is InputEventMouseButton:
         if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-            if not root_node.get_current_edit_target() == root_node.EditTarget.FUSES:
-                return
-            
             if not inside_area:
+                return
+
+            if not root_node.get_current_edit_target() == root_node.EditTarget.FUSES:
                 return
             
             var wire_tilemaps: Node2D = get_node("WireTilemaps")
@@ -62,6 +61,12 @@ func _on_input_event(viewport, event, shape_idx):
                 if data:
                     if not root_node.get_current_edit_mode() == root_node.EditMode.WRITE:
                         root_node.remove_wire_edge(tile_map)
+                
+                if root_node.get_current_edit_mode() == root_node.EditMode.WRITE:
+                    root_node.add_wire_path_anchor_point_if_possible(cell)
+        elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+            if root_node.is_in_placing_wire_state() and root_node.placing_wire_area == self.name:
+                root_node.cancel_wire_placing()
 
 
 func _on_mouse_entered():
